@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Monaghan, Devin
-/// 10/23/2023
+/// Devin Monaghan, Robert Austin
+/// 10/26/2023
 /// Allows the player to move, jump, and pick up wumpas
 /// </summary>
 
@@ -14,12 +14,13 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     public float jumpForce = 10f;
     public float deathYLevel = -3f;
-    public int wumpa = 0;
+    public int wumpaCollected = 0;
     public int lives = 3;
+    public bool attacking = false;
+
 
     private Rigidbody rigidbodyRef;
     private Vector3 startPos;
-    private bool attacking = false;
 
     [SerializeField] private Material myMaterial;
 
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // if the player has collected 100 wumpas then gain a life and remove wumpas
-        if (wumpa >= 100)
+        if (wumpaCollected >= 100)
         {
             GainLife();
         }
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
         // Picks up coins upon collision, adds to score and turns off picked up coin
         if (other.gameObject.tag == "Wumpa")
         {
-            wumpa++;
+            wumpaCollected++;
             other.gameObject.SetActive(false);
         }
 
