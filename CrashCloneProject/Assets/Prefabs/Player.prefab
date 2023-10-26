@@ -125,8 +125,9 @@ MonoBehaviour:
   speed: 10
   jumpForce: 10
   deathYLevel: -3
-  wumpa: 0
+  wumpaCollected: 0
   lives: 3
+  attacking: 0
   myMaterial: {fileID: 2100000, guid: efb526148a7d2324d8254ce90d9aa3c2, type: 2}
 --- !u!54 &5150917996557932142
 Rigidbody:
