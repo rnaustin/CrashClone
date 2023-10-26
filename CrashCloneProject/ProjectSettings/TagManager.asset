@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wumpa
   - RegEnemy
+  - Spikes
   layers:
   - Default
   - TransparentFX
