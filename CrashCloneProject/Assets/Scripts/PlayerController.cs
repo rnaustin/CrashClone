@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidbodyRef;
     private Vector3 startPos;
 
-    [SerializeField] private Material myMaterial;
+    [SerializeField] private Material Green;
+    [SerializeField] private Material Red;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,12 @@ public class PlayerController : MonoBehaviour
         rigidbodyRef = GetComponent<Rigidbody>();
 
         startPos = transform.position;
-        myMaterial.color = Color.green;
+        // set beginning color to green
+        GetComponent<MeshRenderer>().material = Green;
+
+
+
+
 
     }
 
@@ -94,7 +100,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Respawn();
+                LoseLife();
             }
         }
 
@@ -106,13 +112,13 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Respawn();
+                LoseLife();
             }
         }
 
         if (other.gameObject.tag == "Spikes")
         {
-            Respawn();
+            LoseLife();
         }
         /*
         // on collsion with a portal teleport to portal's set teleport position
@@ -143,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     // Respawns the player to their current level's starting position
     // Makes the player lose a life
-    private void Respawn()
+    private void LoseLife()
     {
         lives--;
         transform.position = startPos;
@@ -166,15 +172,16 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         attacking = true;
-        myMaterial.color = Color.red;
+        //Green.color = Color.red;
+
+
+        GetComponent<MeshRenderer>().material = Red;
 
 
 
 
 
-
-
-        myMaterial.color = Color.green;
+        //Green.color = Color.green;
         attacking = false;
     }
 }
