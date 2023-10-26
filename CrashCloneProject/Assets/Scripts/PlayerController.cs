@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;
     private bool attacking = false;
 
+    [SerializeField] private Material myMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
         rigidbodyRef = GetComponent<Rigidbody>();
 
         startPos = transform.position;
+        myMaterial.color = Color.green;
+
     }
 
     // Update is called once per frame
@@ -57,6 +61,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+        }
+        // if the player presses the "e" then attack
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Attack();
         }
 
         // if the player has collected 100 wumpas then gain a life and remove wumpas
@@ -134,5 +143,21 @@ public class PlayerController : MonoBehaviour
     private void GainLife()
     {
         lives++;
+    }
+
+    //makes the player attack
+    private void Attack()
+    {
+        attacking = true;
+        myMaterial.color = Color.red;
+
+
+
+
+
+
+
+        myMaterial.color = Color.green;
+        attacking = false;
     }
 }
