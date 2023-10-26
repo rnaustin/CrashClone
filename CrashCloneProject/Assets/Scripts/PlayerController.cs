@@ -98,6 +98,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (other.gameObject.tag == "RegEnemy")
+        {
+            if (attacking)
+            {
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Respawn();
+            }
+        }
+
         /*
         // on collsion with a portal teleport to portal's set teleport position
         // reset spawn postion to reflect new level
