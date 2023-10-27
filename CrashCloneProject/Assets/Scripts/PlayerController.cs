@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Devin Monaghan, Robert Austin
 /// 10/26/2023
-/// Allows the player to move, jump, and pick up wumpas
+/// Allows the player to move, jump, and pick up wumpas, handles collison and trigger interactions.
 /// </summary>
 
 public class PlayerController : MonoBehaviour
