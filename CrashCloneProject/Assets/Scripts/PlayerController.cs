@@ -131,6 +131,17 @@ public class PlayerController : MonoBehaviour
         */
     }
 
+    private void OnColliderEnter(Collider other)
+    {
+        if (other.gameObject.tag == "crate")
+        {
+            if (attacking)
+            {
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
     // makes the player jump through adding force
     private void Jump()
     {
