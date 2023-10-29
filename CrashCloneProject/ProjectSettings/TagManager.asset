@@ -7,6 +7,7 @@ TagManager:
   - Wumpa
   - RegEnemy
   - Spikes
+  - Crate
   layers:
   - Default
   - TransparentFX
