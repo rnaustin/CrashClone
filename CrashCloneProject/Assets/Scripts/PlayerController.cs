@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Devin Monaghan, Robert Austin
-/// 10/26/2023
-/// Allows the player to move, jump, and pick up wumpas, handles collison and trigger interactions.
+/// 10/27/2023
+/// Allows the player to move, jump, and pick up wumpas
+/// handles collison and trigger interactions
 /// </summary>
 
 public class PlayerController : MonoBehaviour
@@ -165,7 +166,7 @@ public class PlayerController : MonoBehaviour
         {
             // add code to end game by loading the game over scene
             Debug.Log("Game ends");
-            //SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 
