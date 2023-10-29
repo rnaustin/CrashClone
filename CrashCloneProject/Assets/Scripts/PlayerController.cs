@@ -28,17 +28,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // gets the rigidbody componet of this object and stores a refercne to it
+        // gets the rigidbody componet of this object and stores a reference to it
         rigidbodyRef = GetComponent<Rigidbody>();
 
         startPos = transform.position;
+        
         // set beginning color to green
         GetComponent<MeshRenderer>().material = Green;
-
-
-
-
-
     }
 
     // Update is called once per frame
@@ -72,7 +68,7 @@ public class PlayerController : MonoBehaviour
         // if the player presses the "e" then attack
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Attack();
+            StartCoroutine(Attack());
         }
 
         // if the player has collected 100 wumpas then gain a life and remove wumpas
@@ -168,20 +164,15 @@ public class PlayerController : MonoBehaviour
         lives++;
     }
 
-    //makes the player attack
-    private void Attack()
+    //sets the player into the attacking state
+    IEnumerator Attack()
     {
         attacking = true;
-        //Green.color = Color.red;
-
-
         GetComponent<MeshRenderer>().material = Red;
+        
+        yield return new WaitForSeconds(1.5f);
 
-
-
-
-
-        //Green.color = Color.green;
         attacking = false;
+        GetComponent<MeshRenderer>().material = Green;
     }
 }
