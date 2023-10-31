@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public int lives = 3;
     public bool attacking = false;
     public bool coolDown = false;
+    public int wumpaSpawnNumber;
    
     public GameObject wumpaPrefab;
 
@@ -225,9 +226,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // spawns 1-5 wumpas
+    // set number of spawning wumpas to a random int from 1 to 5
+    private void WumpaNumber()
+    {
+        wumpaSpawnNumber = Random.Range(1, 6);
+    }
+
+    /// <summary>
+    /// spawns a random number of wumpas at the position of the recently destroyed crate
+    /// </summary>
+    /// <param name="cratePos"> transform.position of the spawning wumpas </param>
     private void SpawnWumpas(Vector3 cratePos)
     {
-        GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
+        WumpaNumber();
+
+        for (int count = 1; count <= wumpaSpawnNumber; count++)
+        {
+            GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
+        }
     }
 }
