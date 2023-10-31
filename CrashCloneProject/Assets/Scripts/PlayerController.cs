@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Devin Monaghan, Robert Austin
-/// 10/27/2023
+/// 10/31/2023
 /// Allows the player to move, jump, and pick up wumpas
 /// handles collison and trigger interactions
 /// </summary>
@@ -179,12 +179,16 @@ public class PlayerController : MonoBehaviour
     //sets the player into the attacking state
     IEnumerator Attack()
     {
+        // put player in attacking state for 1 second
         attacking = true;
         GetComponent<MeshRenderer>().material = Red;
-        
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
+        // take player out of attacking state
         attacking = false;
         GetComponent<MeshRenderer>().material = Green;
+
+        // disallow player from attacking during cooldown
+        yield return new WaitForSeconds(1.5f);
     }
 }
