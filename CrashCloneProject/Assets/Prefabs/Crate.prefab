@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7421036306258648552}
   - component: {fileID: 513634716267175733}
   - component: {fileID: 1665471643569636148}
+  - component: {fileID: -510721742870382065}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-510721742870382065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8695527345346568991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8425f902af361b4cadc2053faea3da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wumpaPrefab: {fileID: 1919998521964952019, guid: 46a9ae41fa779a34b91f2f56762a390d, type: 3}
