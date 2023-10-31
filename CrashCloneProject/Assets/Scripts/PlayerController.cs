@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool attacking = false;
 
 
+
     private Rigidbody rigidbodyRef;
     private Vector3 startPos;
 
@@ -76,6 +77,12 @@ public class PlayerController : MonoBehaviour
         if (wumpaCollected >= 100)
         {
             GainLife();
+        }
+
+        // if player falls below the death Y level they respawn
+        if (transform.position.y <= deathYLevel)
+        {
+            LoseLife();
         }
     }
 
