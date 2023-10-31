@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public int wumpaCollected = 0;
     public int lives = 3;
     public bool attacking = false;
+    public bool coolDown = false;
 
 
     private Rigidbody rigidbodyRef;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         // if the player presses the "e" then attack
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !attacking && !coolDown)
         {
             StartCoroutine(Attack());
         }
@@ -183,12 +184,14 @@ public class PlayerController : MonoBehaviour
         attacking = true;
         GetComponent<MeshRenderer>().material = Red;
         yield return new WaitForSeconds(1f);
-
         // take player out of attacking state
         attacking = false;
         GetComponent<MeshRenderer>().material = Green;
 
-        // disallow player from attacking during cooldown
+        // put player in cooldown state for 1.5 seconds
+        coolDown = true;
         yield return new WaitForSeconds(1.5f);
+        coolDown = false;
+        // currently the cooldown persists when the player respawns
     }
 }
