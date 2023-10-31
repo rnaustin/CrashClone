@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             if (attacking)
             {
+                SpawnWumpas(other.gameObject.transform.position);
                 Destroy(other.gameObject);
             }
         }
@@ -204,7 +205,6 @@ public class PlayerController : MonoBehaviour
         // currently the cooldown persists when the player respawns
     }
 
-    
     // checks if the player has jumped on top of a destroyable object via raycast
     private void JumpAttack()
     {
@@ -215,8 +215,8 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.tag == "Crate")
             {
-                Destroy(hit.collider.gameObject);
                 SpawnWumpas(hit.collider.gameObject.transform.position);
+                Destroy(hit.collider.gameObject);
             }
             if (hit.collider.tag == "RegEnemy")
             {
@@ -230,5 +230,4 @@ public class PlayerController : MonoBehaviour
     {
         GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
     }
-
 }
