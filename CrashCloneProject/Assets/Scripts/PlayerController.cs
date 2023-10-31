@@ -136,9 +136,9 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-    private void OnColliderEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "crate")
+        if (other.gameObject.tag == "Crate")
         {
             if (attacking)
             {
