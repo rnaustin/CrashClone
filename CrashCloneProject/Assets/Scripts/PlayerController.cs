@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             LoseLife();
         }
+
+        JumpAttack();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -200,5 +202,25 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         coolDown = false;
         // currently the cooldown persists when the player respawns
+    }
+
+    
+    // checks if the player has jumped on top of a destroyable object via raycast
+    private void JumpAttack()
+    {
+        RaycastHit hit;
+        // raycast upwards and return true if it hits an object
+        // Raycast(startPos, direction, output hit, distance for ray)
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.4f))
+        {
+            if (hit.collider.tag == "Crate")
+            {
+                //DestroyCrate();
+            }
+            if (hit.collider.tag == "RegEnemy")
+            {
+                Destroy(hit.collider.gameObject);
+            }
+        }
     }
 }
