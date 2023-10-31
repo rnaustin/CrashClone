@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public int lives = 3;
     public bool attacking = false;
     public bool coolDown = false;
-
-
+   
+    public GameObject wumpaPrefab;
 
     private Rigidbody rigidbodyRef;
     private Vector3 startPos;
@@ -215,7 +215,8 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.tag == "Crate")
             {
-                //DestroyCrate();
+                Destroy(hit.collider.gameObject);
+                SpawnWumpas(hit.collider.gameObject.transform.position);
             }
             if (hit.collider.tag == "RegEnemy")
             {
@@ -223,4 +224,11 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    // spawns 1-5 wumpas
+    private void SpawnWumpas(Vector3 cratePos)
+    {
+        GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
+    }
+
 }

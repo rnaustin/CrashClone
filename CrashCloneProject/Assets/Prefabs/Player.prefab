@@ -128,6 +128,8 @@ MonoBehaviour:
   wumpaCollected: 0
   lives: 3
   attacking: 0
+  coolDown: 0
+  wumpaPrefab: {fileID: 1919998521964952019, guid: 46a9ae41fa779a34b91f2f56762a390d, type: 3}
   Green: {fileID: 2100000, guid: efb526148a7d2324d8254ce90d9aa3c2, type: 2}
   Red: {fileID: 2100000, guid: 7110bbdccf226d1409d13d2e5083578d, type: 2}
 --- !u!54 &5150917996557932142
