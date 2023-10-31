@@ -132,16 +132,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
+      propertyPath: goingRightLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
+      propertyPath: goingForwardBack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
+      propertyPath: travelDistanceBack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: travelDistanceLeft
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: travelDistanceRight
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
+      propertyPath: travelDistanceForward
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5186904028669860811, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.686619
+      value: 5.78
       objectReference: {fileID: 0}
     - target: {fileID: 5186904028669860811, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -149,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5186904028669860811, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.440295
+      value: -0.79
       objectReference: {fileID: 0}
     - target: {fileID: 5186904028669860811, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -288,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 1253002379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -595,6 +611,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1731128971058606061, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
+      propertyPath: goingForwardBack
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5186904028669860811, guid: 52ed82cadcde329429594f8ffb1f78f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
