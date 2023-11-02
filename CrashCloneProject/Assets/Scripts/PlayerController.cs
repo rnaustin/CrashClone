@@ -219,6 +219,10 @@ public class PlayerController : MonoBehaviour
             {
                 LoseLife();
             }
+            if (hit.collider.tag == "Platform")
+            {
+                hit.collider.gameObject.SetActive(false);
+            }
         }
     }
 
