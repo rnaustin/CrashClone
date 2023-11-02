@@ -8,6 +8,8 @@ TagManager:
   - RegEnemy
   - Spikes
   - Crate
+  - ShieldEnemy
+  - SpikeEnemy
   layers:
   - Default
   - TransparentFX
