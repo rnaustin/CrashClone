@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BreakablePlat : MonoBehaviour
 {
+    public float startPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,8 @@ public class BreakablePlat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+
 }

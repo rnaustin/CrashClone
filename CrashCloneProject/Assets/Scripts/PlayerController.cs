@@ -225,6 +225,10 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
             }
+            if (hit.collider.tag == "Platform")
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
