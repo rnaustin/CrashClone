@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Devin Monaghan, Robert Austin
-/// 10/31/2023
+/// 11/02/2023
 /// Allows the player to move, jump, and pick up wumpas
 /// handles collison and trigger interactions
 /// </summary>
@@ -92,15 +92,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Picks up coins upon collision, adds to score and turns off picked up coin
+        // Picks up wumpa upon collision, adds to score and turns off picked up wumpa
         if (other.gameObject.tag == "Wumpa")
         {
             wumpaCollected++;
             other.gameObject.SetActive(false);
         }
-
-        // Resets player's position upon collision with obstacles like enemies or black holes
-        if (other.gameObject.tag == "Obstacle")
+        // on collision with regular enemy or shield enemy, kill enemy if attacking or die if not attacking
+        if (other.gameObject.tag == "RegEnemy" || other.gameObject.tag == "SpikeEnemy")
         {
             if (attacking)
             {
@@ -111,20 +110,8 @@ public class PlayerController : MonoBehaviour
                 LoseLife();
             }
         }
-
-        if (other.gameObject.tag == "RegEnemy")
-        {
-            if (attacking)
-            {
-                Destroy(other.gameObject);
-            }
-            else
-            {
-                LoseLife();
-            }
-        }
-
-        if (other.gameObject.tag == "Spikes")
+        // die on collision with shield enemy or spike
+        if (other.gameObject.tag == "ShieldEnemy" || other.gameObject.tag == "Spikes")
         {
             LoseLife();
         }
@@ -216,18 +203,21 @@ public class PlayerController : MonoBehaviour
         // Raycast(startPos, direction, output hit, distance for ray)
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.4f))
         {
+            // if jumping on a crate destroy the crate and spawn a random number of wumpas from 1-5
             if (hit.collider.tag == "Crate")
             {
                 SpawnWumpas(hit.collider.gameObject.transform.position);
                 Destroy(hit.collider.gameObject);
             }
-            if (hit.collider.tag == "RegEnemy")
+            // if jumping on a regular enemy or shield enemy kill the enemy
+            if (hit.collider.tag == "RegEnemy" || hit.collider.tag == "ShieldEnemy")
             {
                 Destroy(hit.collider.gameObject);
             }
-            if (hit.collider.tag == "Platform")
+            // if jumping on a spike enemy die
+            if (hit.collider.tag == "SpikeEnemy")
             {
-                gameObject.SetActive(false);
+                LoseLife();
             }
         }
     }
