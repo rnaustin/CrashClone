@@ -10,6 +10,7 @@ TagManager:
   - Crate
   - ShieldEnemy
   - SpikeEnemy
+  - Platform
   layers:
   - Default
   - TransparentFX
