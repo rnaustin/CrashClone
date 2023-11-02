@@ -11,6 +11,7 @@ TagManager:
   - ShieldEnemy
   - SpikeEnemy
   - Platform
+  - Portal
   layers:
   - Default
   - TransparentFX
