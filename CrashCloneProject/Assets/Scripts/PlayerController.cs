@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviour
     public int lives = 3;
     public bool attacking = false;
     public bool coolDown = false;
-
-
+    public int wumpaSpawnNumber;
+   
+    public GameObject wumpaPrefab;
 
     private Rigidbody rigidbodyRef;
     private Vector3 startPos;
@@ -127,6 +128,8 @@ public class PlayerController : MonoBehaviour
         {
             LoseLife();
         }
+
+
         /*
         // on collsion with a portal teleport to portal's set teleport position
         // reset spawn postion to reflect new level
@@ -144,6 +147,7 @@ public class PlayerController : MonoBehaviour
         {
             if (attacking)
             {
+                SpawnWumpas(other.gameObject.transform.position);
                 Destroy(other.gameObject);
             }
         }
@@ -204,7 +208,6 @@ public class PlayerController : MonoBehaviour
         // currently the cooldown persists when the player respawns
     }
 
-    
     // checks if the player has jumped on top of a destroyable object via raycast
     private void JumpAttack()
     {
@@ -215,12 +218,33 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.tag == "Crate")
             {
-                //DestroyCrate();
+                SpawnWumpas(hit.collider.gameObject.transform.position);
+                Destroy(hit.collider.gameObject);
             }
             if (hit.collider.tag == "RegEnemy")
             {
                 Destroy(hit.collider.gameObject);
             }
+        }
+    }
+
+    // set number of spawning wumpas to a random int from 1 to 5
+    private void WumpaNumber()
+    {
+        wumpaSpawnNumber = Random.Range(1, 6);
+    }
+
+    /// <summary>
+    /// spawns a random number of wumpas at the position of the recently destroyed crate
+    /// </summary>
+    /// <param name="cratePos"> transform.position of the spawning wumpas </param>
+    private void SpawnWumpas(Vector3 cratePos)
+    {
+        WumpaNumber();
+
+        for (int count = 1; count <= wumpaSpawnNumber; count++)
+        {
+            GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
         }
     }
 }
