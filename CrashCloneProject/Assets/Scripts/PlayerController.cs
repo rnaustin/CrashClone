@@ -214,6 +214,11 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
             }
+            // if jumping on a spike enemy die
+            if (hit.collider.tag == "SpikeEnemy")
+            {
+                LoseLife();
+            }
         }
     }
 
