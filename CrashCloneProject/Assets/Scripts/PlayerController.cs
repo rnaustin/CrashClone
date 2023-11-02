@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /// Movement
         // if the player press the "a" key move left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -118,17 +119,13 @@ public class PlayerController : MonoBehaviour
         {
             LoseLife();
         }
-
-
-        /*
         // on collsion with a portal teleport to portal's set teleport position
         // reset spawn postion to reflect new level
         if (other.gameObject.tag == "Portal")
         {
             transform.position = other.gameObject.GetComponent<Portal>().teleportPoint.transform.position;
             startPos = transform.position;
-        }
-        */
+        }        
     }
     // Handles collision events involving player
     private void OnCollisionEnter(Collision other)
@@ -258,5 +255,4 @@ public class PlayerController : MonoBehaviour
             GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
         }
     }
-
 }
