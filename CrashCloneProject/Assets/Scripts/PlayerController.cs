@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
         JumpAttack();
     }
 
+    // all trigger interactions involving player
     private void OnTriggerEnter(Collider other)
     {
         // Picks up wumpa upon collision, adds to score and turns off picked up wumpa
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
         }
         */
     }
-
+    // Handles collision events involving player
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Crate")
@@ -197,6 +198,7 @@ public class PlayerController : MonoBehaviour
         // currently the cooldown persists when the player respawns
     }
 
+    // Delay times for breakable platform destruction and respawn
     IEnumerator PlatformRespawn(GameObject platform)
     {
         yield return new WaitForSeconds(PlatformDelay);
