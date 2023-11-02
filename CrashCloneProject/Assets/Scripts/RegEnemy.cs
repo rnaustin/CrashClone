@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Austin, Robert
-// 10/26/2023
+// Austin, Robert and Monoghan, Devin
+// 10/31/2023
 // Controlls Regular Enemy movement
 
 public class RegEnemy : MonoBehaviour
