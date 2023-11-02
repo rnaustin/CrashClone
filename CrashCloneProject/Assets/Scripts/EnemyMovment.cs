@@ -3,37 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Austin, Robert and Monoghan, Devin
-// 10/31/2023
-// Controlls Regular Enemy movement
+// 11/2/2023
+// Controls enemy movement
 
-public class RegEnemy : MonoBehaviour
+public class EnemyMovment : MonoBehaviour
 {
-
-    public float travelDistanceRight = 0f;
-    public float travelDistanceLeft = 0f;
-    public float speed = 0f;
-    public float travelDistanceForward = 0f;
-    public float travelDistanceBack = 0f;
+    public float travelDistanceRight = 5f;
+    public float travelDistanceLeft = 5f;
+    public float travelDistanceForward = 5f;
+    public float travelDistanceBack = 5f;
+    public float speed = 5f;
+    public bool goingSideToSide = true;
 
     private float startX;
-    public float startZ;
+    private float startZ;
     private bool movingRight = true;
     private bool movingForward = true;
-    public bool goingRightLeft = true;
-    public bool goingForwardBack = true;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        startX = transform.position.x;
+        startZ = transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (goingRightLeft)
+        if (goingSideToSide)
         {
             if (movingRight)
             {
@@ -50,7 +47,7 @@ public class RegEnemy : MonoBehaviour
             else
             {
                 // if the object has reached is less than start position + travel left distance, it can move left
-                if (transform.position.x >= startX + travelDistanceLeft)
+                if (transform.position.x >= startX - travelDistanceLeft)
                 {
                     transform.position += Vector3.left * speed * Time.deltaTime;
                 }
@@ -60,8 +57,7 @@ public class RegEnemy : MonoBehaviour
                 }
             }
         }
-
-        if (goingForwardBack)
+        else
         {
             if (movingForward)
             {
@@ -76,7 +72,7 @@ public class RegEnemy : MonoBehaviour
             }
             else
             {
-                if (transform.position.z >= startZ + travelDistanceBack)
+                if (transform.position.z >= startZ - travelDistanceBack)
                 {
                     transform.position += Vector3.back * speed * Time.deltaTime;
                 }
