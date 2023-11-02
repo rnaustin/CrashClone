@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool attacking = false;
     public bool coolDown = false;
     public int wumpaSpawnNumber;
+    public float PlatformDelay = 1f;
    
     public GameObject wumpaPrefab;
 
@@ -195,6 +197,14 @@ public class PlayerController : MonoBehaviour
         // currently the cooldown persists when the player respawns
     }
 
+    IEnumerator PlatformRespawn(GameObject platform)
+    {
+        yield return new WaitForSeconds(PlatformDelay);
+       platform.SetActive(false);
+        yield return new WaitForSeconds(5f);
+       platform.SetActive(true);
+    }
+
     // checks if the player has jumped on top of a destroyable object via raycast
     private void JumpAttack()
     {
@@ -221,7 +231,8 @@ public class PlayerController : MonoBehaviour
             }
             if (hit.collider.tag == "Platform")
             {
-                hit.collider.gameObject.SetActive(false);
+                StartCoroutine(PlatformRespawn(hit.collider.gameObject));
+                
             }
         }
     }
@@ -245,4 +256,5 @@ public class PlayerController : MonoBehaviour
             GameObject wumpaInstance = Instantiate(wumpaPrefab, cratePos, transform.rotation);
         }
     }
+
 }
