@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Devin Monaghan, Robert Austin
-/// 11/02/2023
+/// 11/07/2023
 /// Allows the player to move, jump, and pick up wumpas
 /// handles collison and trigger interactions
 /// </summary>
@@ -199,9 +199,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator PlatformRespawn(GameObject platform)
     {
         yield return new WaitForSeconds(PlatformDelay);
-       platform.SetActive(false);
+        platform.SetActive(false);
         yield return new WaitForSeconds(5f);
-       platform.SetActive(true);
+        platform.SetActive(true);
     }
 
     // checks if the player has jumped on top of a destroyable object via raycast
