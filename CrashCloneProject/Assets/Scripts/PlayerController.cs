@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10f;
     public float jumpForce = 10f;
-    public float deathYLevel = -3f;
+    public float deathYLevel = 11f;
     public int wumpaCollected = 0;
     public int lives = 3;
     public bool attacking = false;
