@@ -13,7 +13,8 @@ public class Flamethrower : MonoBehaviour
     public GameObject flamePrefab;
 
     public float flameRate = 0.3f;
-    public float flameDelay = 4f;
+    public float flameRowDelay = 4f;
+    public float flameDespawnDelay = 2.5f;
 
     public bool throwingRight = true;
 
@@ -53,13 +54,18 @@ public class Flamethrower : MonoBehaviour
                 middleFlameInstance.GetComponent<Flame>().goingRight = throwingRight;
                 rightFlameInstance.GetComponent<Flame>().goingRight = throwingRight;
 
+                // set the flames' despawn time to make adjsutable on the flamethrower
+                leftFlameInstance.GetComponent<Flame>().despawnTime = flameDespawnDelay;
+                middleFlameInstance.GetComponent<Flame>().despawnTime = flameDespawnDelay;
+                rightFlameInstance.GetComponent<Flame>().despawnTime = flameDespawnDelay;
+
                 // wait for "throwRate" seconds before instantiating another row of flames
                 yield return new WaitForSeconds(flameRate);
             }
             // if the time since the loop started has passed 5 seconds then wait for "flameDelay" seconds before throwing flames agian
             else
             {
-                yield return new WaitForSeconds(flameDelay);
+                yield return new WaitForSeconds(flameRowDelay);
                 startTime = Time.time;
             }
 

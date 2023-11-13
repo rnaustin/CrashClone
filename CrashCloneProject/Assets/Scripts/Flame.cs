@@ -6,7 +6,7 @@ public class Flame : MonoBehaviour
 {
     public float speed = 2f;
     public float driftSpeed = 1.5f;
-    public float despawntime = 2.5f;
+    public float despawnTime = 2.5f;
 
     public bool goingRight;
 
@@ -15,7 +15,7 @@ public class Flame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DespawnDelay(despawntime));
+        StartCoroutine(DespawnDelay(despawnTime));
     }
 
     // Update is called once per frame
