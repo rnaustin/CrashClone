@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
     private void JumpAttack()
     {
         RaycastHit hit;
-        // raycast upwards and return true if it hits an object
+        // raycast downwards and return true if it hits an object
         // Raycast(startPos, direction, output hit, distance for ray)
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.4f))
         {
