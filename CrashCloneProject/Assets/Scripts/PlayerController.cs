@@ -114,8 +114,8 @@ public class PlayerController : MonoBehaviour
                 LoseLife();
             }
         }
-        // die on collision with shield enemy or spike
-        if (other.gameObject.tag == "ShieldEnemy" || other.gameObject.tag == "Spikes")
+        // die on collision with shield enemy, spike, or flame
+        if (other.gameObject.tag == "ShieldEnemy" || other.gameObject.tag == "Spikes" || other.gameObject.tag == "Flame")
         {
             LoseLife();
         }

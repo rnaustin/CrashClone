@@ -6,7 +6,7 @@ public class Flame : MonoBehaviour
 {
     public float speed = 2f;
     public float driftSpeed = 1.5f;
-    public float despawntime = 2f;
+    public float despawntime = 2.5f;
 
     public bool goingRight;
 

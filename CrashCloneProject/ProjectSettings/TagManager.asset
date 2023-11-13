@@ -12,6 +12,7 @@ TagManager:
   - SpikeEnemy
   - Platform
   - Portal
+  - Flame
   layers:
   - Default
   - TransparentFX
