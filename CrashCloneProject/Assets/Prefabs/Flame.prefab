@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  driftSpeed: 2
+  driftSpeed: 1.5
+  despawntime: 2
   goingRight: 0
   order: left

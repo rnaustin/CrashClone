@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Flame : MonoBehaviour
 {
-    public float speed = 3f;
-    public float driftSpeed = 2f;
+    public float speed = 2f;
+    public float driftSpeed = 1.5f;
+    public float despawntime = 2f;
+
     public bool goingRight;
 
     public string order = "left";
@@ -13,7 +15,7 @@ public class Flame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DespawnDelay(3f));
+        StartCoroutine(DespawnDelay(despawntime));
     }
 
     // Update is called once per frame
@@ -47,7 +49,11 @@ public class Flame : MonoBehaviour
         }
     }
 
-    // waits for "delayTime" seconds and despawns object
+    /// <summary>
+    /// waits for "delayTime" seconds and despawns object
+    /// </summary>
+    /// <param name="delayTime"> number of seconds before the flame despawns </param>
+    /// <returns></returns>
     IEnumerator DespawnDelay(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
